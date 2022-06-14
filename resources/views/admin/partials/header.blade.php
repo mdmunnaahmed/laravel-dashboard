@@ -889,8 +889,13 @@
                                             <span data-feather="bell"></span> Help</a>
                                     </li>
                                 </ul>
-                                <a href="{{ route('logout') }}" class="nav-author__signout">
-                                    <span data-feather="log-out"></span> Sign Out</a>
+                                <form method="POST" action="{{ route('logout') }}" class="nav-author__signout">
+                                    @csrf
+                                    <button type="submit" class="btn">
+                                        <span data-feather="log-out"></span>
+                                        {{ __('Log Out') }}
+                                    </button>
+                                </form>
                             </div>
                         </div>
                         <!-- ends: .dropdown-wrapper -->

@@ -6,6 +6,7 @@
         <div class="profile-setting ">
             <div class="container-fluid">
                 <form method="POST" action="{{ route('profile.store') }}" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-12">
 
@@ -81,7 +82,7 @@
                                         <div class="ap-img mb-20 pro_img_wrapper">
                                             <input id="profile_upload" type="file" name="profile_upload" class="d-none">
                                             <label for="profile_upload">
-                                                <img class="ap-img__main rounded-circle wh-120" id="previewProfile" src="{{ asset('admin/img/author/profile.png') }}" alt="profile">
+                                                <img class="ap-img__main rounded-circle wh-120" id="previewProfile" src="{{ !empty($admin_data->profile_img) ? url('admin/img/author/' . $admin_data->profile_img) : url('admin/img/no-img.jpg') }}" alt="profile">
                                                 <span class="cross" id="remove_pro_pic">
                                                     <span data-feather="camera"></span>
                                                 </span>
@@ -220,7 +221,7 @@
                                         </div>
                                         <!-- Edit Profile End -->
                                     </div>
-                                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                    <div class="tab-pane fade " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                                         <!-- Edit Profile -->
                                         <div class="edit-profile mt-25">
                                             <div class="card">
@@ -307,66 +308,7 @@
                                         <!-- Edit Profile End -->
                                     </div>
                                     <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                        <!-- Edit Profile -->
-                                        <div class="edit-profile mt-25">
-                                            <div class="card">
-                                                <div class="card-header  px-sm-25 px-3">
-                                                    <div class="edit-profile__title">
-                                                        <h6>change password</h6>
-                                                        <span class="fs-13 color-light fw-400">Change or reset your account
-                                                            password</span>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-xxl-6 col-lg-8 col-sm-10">
-                                                            <div class="edit-profile__body mx-lg-20">
-                                                                <form>
-                                                                    <div class="form-group mb-20">
-                                                                        <label for="name">old passowrd</label>
-                                                                        <input type="text" class="form-control" id="name">
-                                                                    </div>
-                                                                    <div class="form-group mb-1">
-                                                                        <label for="password-field">new password</label>
-                                                                        <div class="position-relative">
-                                                                            <input id="password-field" type="password" class="form-control pr-50" name="password" value="secret">
-                                                                            <span class="fa fa-fw fa-eye-slash text-light fs-16 field-icon toggle-password2"></span>
-                                                                        </div>
-                                                                        <small id="passwordHelpInline" class="text-light fs-13">Minimum
-                                                                            6
-                                                                            characters
-                                                                        </small>
-                                                                    </div>
-                                                                    <div class="button-group d-flex flex-wrap pt-45 mb-35">
-
-
-
-                                                                        <button class="btn btn-primary btn-default btn-squared mr-15 text-capitalize">Save Changes
-                                                                        </button>
-
-
-
-
-
-
-
-
-                                                                        <button class="btn btn-light btn-default btn-squared fw-400 text-capitalize">cancel
-                                                                        </button>
-
-
-
-
-
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Edit Profile End -->
+                                        @include('admin.auth.change_pass')
                                     </div>
                                     <div class="tab-pane fade " id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
                                         <!-- Edit Profile -->

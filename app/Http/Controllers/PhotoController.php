@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use app\Models\User;
 
 class PhotoController extends Controller
@@ -75,23 +76,29 @@ class PhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $id = Auth::user()->id;
         $data = User::find($id);
         $data->name = $request->name;
         $data->email = $request->email;
         $data->username = $request->username;
-        dd($data);
+        // dd($data);
         if ($request->file('profile_upload')) {
             $file = $request->file('profile_upload');
-            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $fileMainName = explode(".", $file->getClientOriginalName());
+            $fileExt = "." . $fileMainName[count($fileMainName) - 1];
+            $filename = "profile" . $id . $fileExt;
             $file->move(public_path('admin/img/author/'), $filename);
 
             $data['profile_img'] = $filename;
         }
         $data->save();
-        return redirect()->route('admin.profile');
+        $message = array(
+            'message' => "Profile Successfully Updated",
+            'type' => 'success',
+        );
+        return redirect()->route('admin.profile')->with($message);
     }
 
     /**
@@ -103,5 +110,28 @@ class PhotoController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function updatePass(Request $request)
+    {
+        $validate = $request->validate([
+            'old_pass' => 'required',
+            'new_pass' => 'required | min:6 |max:16',
+            'confirm_pass' => 'required | same:new_pass',
+        ]);
+
+        $oldHash = Auth::user()->password;
+        if (Hash::check($request->old_pass, $oldHash)) {
+            $user = User::find(Auth::id());
+            $user->password = bcrypt($request->new_pass);
+            $user->save();
+
+            session()->flash("message", 'Password Updated Successfully');
+            return redirect()->back();
+        } else {
+            session()->flash("message", 'Password did\'t match');
+            return redirect()->back();
+        }
     }
 }

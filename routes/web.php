@@ -24,11 +24,14 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-// Admin Route
+// Admin All Route
 Route::controller(PhotoController::class)->group(function () {
-    Route::get('admin/profile', 'index')->name('admin.profile')->middleware(['auth']);
+    // Admin Profile Routes
+    Route::get('admin/profile/', 'index')->name('admin.profile')->middleware(['auth']);
     Route::get('admin/profile/edit/', 'edit')->name('admin.profile.edit');
     Route::post('admin/profile/', 'update')->name('profile.store');
+
+    Route::post('admin/change/password', 'updatePass')->name('admin.change.pass');
 });
 
 

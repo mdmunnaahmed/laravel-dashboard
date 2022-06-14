@@ -32,7 +32,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect()->route('admin.profile');
     }
 
     /**
@@ -49,6 +49,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        $message = array(
+            'message' => "Successfully Logged Out",
+            'type' => 'error',
+        );
+
+        return redirect()->route('login')->with($message);
     }
 }

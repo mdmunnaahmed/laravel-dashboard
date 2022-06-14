@@ -80,7 +80,8 @@
                                     <div class="account-profile">
                                         <div class="ap-img w-100 d-flex justify-content-center">
                                             <!-- Profile picture image-->
-                                            <img class="ap-img__main rounded-circle mb-3  wh-120 d-flex bg-opacity-primary" src="img/author/profile.png" alt="profile">
+                                            <img class="ap-img__main rounded-circle mb-3  wh-120 d-flex bg-opacity-primary"
+                                            src="{{ !empty($admin_data->profile_img) ? url('admin/img/author/' . $admin_data->profile_img) : url('admin/img/no-img.jpg') }}" alt="profile">
                                         </div>
                                         <div class="ap-nameAddress pb-3 pt-1">
                                             <h5 class="ap-nameAddress__title">{{ $admin_data->name }}</h5>
@@ -89,7 +90,7 @@
                                                 <span data-feather="map-pin"></span>London, England
                                             </p>
                                         </div>
-                                        <a class="mb-3" href="{{ route('admin.profile.edit', $admin_data->id) }}">Edit Profile</a>
+                                        <a class=" pb-3" href="{{ route('admin.profile.edit', $admin_data->id) }}">Edit Profile</a>
                                         <div class="ap-button button-group d-flex justify-content-center flex-wrap">
                                             <button type="button" class="border text-capitalize px-25 color-gray transparent shadow2 radius-md">
                                                 <span data-feather="mail"></span>message</button>
@@ -488,14 +489,8 @@
                                                                     <span data-feather="more-horizontal"></span>
                                                                 </a>
 
-
-
                                                                 <button class="btn btn-primary btn-default btn-squared ml-auto ap-post-attach__btn">public post
                                                                 </button>
-
-
-
-
 
                                                             </div>
                                                         </div>

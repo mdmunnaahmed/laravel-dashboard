@@ -15,6 +15,8 @@
 
     <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
     <!--css-->
 
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png">
@@ -49,10 +51,6 @@
 
     </main>
 
-
-
-
-
     <div id="overlayer">
         <span class="loader-overlay">
             <div class="atbd-spin-dots spin-lg">
@@ -68,9 +66,9 @@
     <div class="overlay-dark-sidebar"></div>
     <div class="customizer-overlay"></div>
 
-    <a href="#" class="customizer-trigger">
-        <span data-feather="settings"></span></a>
-    <div class="customizer-wrapper">
+    <a href="#" class="customizer-trigger"><span data-feather="settings"></span></a>
+
+    {{-- <div class="customizer-wrapper">
         <div class="customizer">
             <div class="customizer__head">
                 <h4 class="customizer__title">Customizer</h4>
@@ -137,14 +135,36 @@
                 <!-- ends: .customizer__single -->
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDduF2tLXicDEPDMAtC6-NLOekX0A5vlnY"></script>
+    {{-- <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDduF2tLXicDEPDMAtC6-NLOekX0A5vlnY"></script> --}}
     <!-- inject:js-->
     <script src="{{ asset('admin/js/plugins.min.js') }}"></script>
     <script src="{{ asset('admin/js/script.min.js') }}"></script>
-    <!-- endinject-->
-</body>
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- endinject-->
+
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
+        @endif
+    </script>
+
+</body>
 
 </html>
