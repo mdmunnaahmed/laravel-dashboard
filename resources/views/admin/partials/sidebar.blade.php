@@ -5,33 +5,10 @@
                 <span>Main menu</span>
             </li>
             <li class="has-child open">
-                <a href="#" class="active">
+                <a href="{{ route('dashboard') }}" class="active">
                     <span data-feather="home" class="nav-icon"></span>
                     <span class="menu-text">Dashboard</span>
-                    <span class="toggle-icon"></span>
                 </a>
-                <ul>
-                    <li>
-                        <a class="active" href="{{ route('dashboard') }}">Social Media</a>
-                    </li>
-                    <li>
-                        <a class="" href="business.html">FineTech / Business</a>
-                    </li>
-                    <li>
-                        <a class="" href="performance.html">Site Performance</a>
-                    </li>
-                    <li>
-                        <a class="" href="ecommerce.html">Ecommerce</a>
-                    </li>
-                    <li>
-                        <a class="" href="crm.html">
-                            CRM</a>
-                    </li>
-                    <li>
-                        <a class="" href="sales.html">
-                            Sales Performance</a>
-                    </li>
-                </ul>
             </li>
             <li class="has-child">
                 <a href="#" class="">
@@ -52,19 +29,15 @@
                     <li class="l_navbar">
                         <a href="#" data-layout="side">Side Menu</a>
                     </li>
-                    <li class="layout">
-                        <a href="https://demo.jsnorm.com/html/strikingdash/strikingdash/rtl">RTL</a>
-                    </li>
-                    <li class="layout">
-                        <a href="https://demo.jsnorm.com/html/strikingdash/strikingdash/ltr">LTR</a>
-                    </li>
                 </ul>
             </li>
+            <li class="menu-title m-top-30">
+                <span>Settings</span>
+            </li>
             <li>
-                <a href="changelog.html" class="">
-                    <span data-feather="activity" class="nav-icon"></span>
-                    <span class="menu-text">Changelog</span>
-                    <span class="badge badge-primary menuItem">2.1.6</span>
+                <a href="{{ route('admin.setting') }}" class="">
+                    <span data-feather="settings" class="nav-icon"></span>
+                    <span class="menu-text">Generel Settings</span>
                 </a>
             </li>
             <li class="menu-title m-top-30">
@@ -81,8 +54,7 @@
                         <a class="" href="inbox.html">Inbox</a>
                     </li>
                     <li>
-                        <a class="" href="read-email.html">Read
-                            Email</a>
+                        <a class="" href="read-email.html">Read Email</a>
                     </li>
                 </ul>
             </li>
@@ -166,12 +138,6 @@
                             Project</a>
                     </li>
                 </ul>
-            </li>
-            <li>
-                <a href="calendar.html" class="">
-                    <span data-feather="calendar" class="nav-icon"></span>
-                    <span class="menu-text">Calendar</span>
-                </a>
             </li>
             <li class="has-child">
                 <a href="#" class="">
@@ -283,26 +249,6 @@
                     <span data-feather="bookmark" class="nav-icon"></span>
                     <span class="menu-text">Bookmarks<span class="badge badge-success menuItem">New</span></span>
                 </a>
-            </li>
-            <li class="menu-title m-top-30">
-                <span>CRUD</span>
-            </li>
-            <li class="has-child">
-                <a href="#" class="">
-                    <span data-feather="database" class="nav-icon"></span>
-                    <span class="menu-text">Firestore Crud</span>
-                    <span class="toggle-icon"></span>
-                    <span class="badge badge-success menuItem">New</span>
-                </a>
-                <ul>
-                    <li>
-                        <a class="" href="firestore.html">View All</a>
-                    </li>
-                    <li>
-                        <a class="" href="firestore-add.html">Add
-                            New</a>
-                    </li>
-                </ul>
             </li>
             <li class="menu-title m-top-30">
                 <span>Features</span>

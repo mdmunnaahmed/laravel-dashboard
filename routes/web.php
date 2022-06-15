@@ -31,7 +31,11 @@ Route::controller(PhotoController::class)->group(function () {
     Route::get('admin/profile/edit/', 'edit')->name('admin.profile.edit');
     Route::post('admin/profile/', 'update')->name('profile.store');
 
+    // Admin Auth Routes
     Route::post('admin/change/password', 'updatePass')->name('admin.change.pass');
+
+    // Admin Generel Settings Routes
+    Route::get('admin/setting/', 'settingIndex')->name('admin.setting');
 });
 
 
