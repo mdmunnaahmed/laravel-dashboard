@@ -6,73 +6,99 @@
         @csrf
 
         <div class="card card-Vertical card-default card-md mb-4">
-            {{-- <div class="card-header">
+            <div class="card-header">
                 <h6>Generel Setting </h6>
-            </div> --}}
+            </div>
             <div class="card-body py-md-30">
-                <form>
+                <form action="{{ route('admin.setting.update') }}" method="POST">
+                    @csrf
                     <div class="row">
                         <div class="col-sm-6 col-lg-4 mb-25">
                             <label class="color-dark fs-14 fw-500 align-center">Site Title</label>
-                            <input type="text" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Site Title">
+                            <input name="site_title" type="text" class="form-control ih-medium ip-gray radius-xs b-light px-15" value="{{ $setting->site_title }}">
                         </div>
 
                         <div class="col-sm-6 col-lg-4 mb-25">
                             <label class="color-dark fs-14 fw-500 align-center">Currency</label>
-                            <input type="text" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Currency">
+                            <input name="currency" type="text" class="form-control ih-medium ip-gray radius-xs b-light px-15" value="{{ $setting->currency }}">
                         </div>
 
                         <div class="col-sm-6 col-lg-4 mb-25">
                             <label class="color-dark fs-14 fw-500 align-center">Currency Symbol</label>
-                            <input type="text" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Currency Symbol">
+                            <input name="currency_symbol" type="text" class="form-control ih-medium ip-gray radius-xs b-light px-15" value="{{ $setting->currency_symbol }}">
                         </div>
 
                         <div class="col-sm-6 col-lg-4 mb-25">
                             <label class="color-dark fs-14 fw-500 align-center">Timezone</label>
-                            <input type="text" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Timezone">
+                            <input name="timezone" type="text" class="form-control ih-medium ip-gray radius-xs b-light px-15" value="Timezone">
                         </div>
 
                         <div class="col-sm-6 col-lg-4 mb-25">
                             <label class="color-dark fs-14 fw-500 align-center">Site Base Color</label>
-                            <input type="text" class="form-control ih-medium ip-gray radius-xs b-light px-15">
+                            <div class="input-group">
+                                <span class="input-group-text p-0 border-0">
+                                    <input name="base_color" type="text" class="form-control ih-medium ip-gray radius-xs b-light px-15 colorPicker" value="6024f0">
+                                </span>
+                                <input name="base_color" type="text" class="form-control ih-medium ip-gray radius-xs b-light px-15 colorCode" value="6024f0">
+                            </div>
                         </div>
 
                         <div class="col-sm-6 col-lg-4 mb-25">
                             <label class="color-dark fs-14 fw-500 align-center">Site Secondary Color</label>
-                            <input type="text" class="form-control ih-medium ip-gray radius-xs b-light px-15">
-                        </div>
-
-                        <div class="col-sm-6 col-lg-4 mb-25">
-                            <div class="checkbox-theme-default custom-checkbox checkbox-group__single">
-                                <input class="checkbox" type="checkbox" id="check-grp-4">
-                                <label for="check-grp-4">
-                                    <span class="checkbox-text">Apple</span>
-                                </label>
+                            <div class="input-group">
+                                <span class="input-group-text p-0 border-0">
+                                    <input name="secondary_color" type="text" class="form-control ih-medium ip-gray radius-xs b-light px-15 colorPicker" value="4f4f55">
+                                </span>
+                                <input name="secondary_color" type="text" class="form-control ih-medium ip-gray radius-xs b-light px-15 colorCode" value="4f4f55">
                             </div>
                         </div>
 
                         <div class="col-sm-6 col-lg-4 mb-25">
-                            <div class="checkbox-theme-default custom-checkbox checkbox-group__single">
-                                <input class="checkbox" type="checkbox" id="check-grp-4">
-                                <label for="check-grp-4">
-                                    <span class="checkbox-text">Apple</span>
-                                </label>
+                            <div class="form-group">
+                                <label for="check-grp-4" class="color-dark fs-14 fw-500 align-center">Check</label>
+                                <input type="checkbox" data-width="100%" data-size="medium" data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle" data-height="50" data-on="Enabled" data-off="Disabled" name="secure_password">
                             </div>
                         </div>
 
                         <div class="col-sm-6 col-lg-4 mb-25">
-                            <div class="checkbox-theme-default custom-checkbox checkbox-group__single">
-                                <input class="checkbox" type="checkbox" id="check-grp-4">
-                                <label for="check-grp-4">
-                                    <span class="checkbox-text">Apple</span>
-                                </label>
+                            <div class="form-group">
+                                <label for="check-grp-4" class="color-dark fs-14 fw-500 align-center">Check</label>
+                                <input type="checkbox" data-width="100%" data-size="medium" data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle" data-height="50" data-on="Enabled" data-off="Disabled" name="secure_password">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-4 mb-25">
+                            <div class="form-group">
+                                <label for="check-grp-4" class="color-dark fs-14 fw-500 align-center">Check</label>
+                                <input type="checkbox" data-width="100%" data-size="medium" data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle" data-height="50" data-on="Enabled" data-off="Disabled" name="secure_password">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-4 mb-25">
+                            <div class="form-group">
+                                <label for="check-grp-4" class="color-dark fs-14 fw-500 align-center">Check</label>
+                                <input type="checkbox" data-width="100%" data-size="medium" data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle" data-height="50" data-on="Enabled" data-off="Disabled" name="secure_password">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-4 mb-25">
+                            <div class="form-group">
+                                <label for="check-grp-4" class="color-dark fs-14 fw-500 align-center">Check</label>
+                                <input type="checkbox" data-width="100%" data-size="medium" data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle" data-height="50" data-on="Enabled" data-off="Disabled" name="secure_password">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-4 mb-25">
+                            <div class="form-group">
+                                <label for="check-grp-4" class="color-dark fs-14 fw-500 align-center">Check</label>
+                                <input type="checkbox" data-width="100%" data-size="medium" data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle" data-height="50" data-on="Enabled" data-off="Disabled" name="secure_password">
                             </div>
                         </div>
 
                         <div class="col-12">
                             <div class="layout-button mt-0">
                                 <button type="button" class="btn btn-default btn-squared border-normal bg-normal px-50 ">cancel</button>
-                                <button type="button" class="btn btn-primary btn-default btn-squared px-50">save</button>
+                                <button type="submit" class="btn btn-primary btn-default btn-squared px-50 w-50">save</button>
                             </div>
                         </div>
                     </div>

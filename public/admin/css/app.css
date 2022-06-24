@@ -1,0 +1,168 @@
+.btn--primary {
+    background-color: #4634ff !important;
+}
+
+.btn--primary:hover {
+    background-color: #5e50ee !important;
+}
+
+.btn--secondary {
+    background-color: #868e96 !important;
+}
+
+.btn--secondary:hover {
+    background-color: #78818a !important;
+}
+
+.btn--success {
+    background-color: #28c76f !important;
+}
+
+.btn--success:hover {
+    background-color: #24b263 !important;
+}
+
+.btn--danger {
+    background-color: #ea5455 !important;
+}
+
+.btn--danger:hover {
+    background-color: #e73d3e !important;
+}
+
+.btn--warning {
+    background-color: #ff9f43 !important;
+}
+
+.btn--warning:hover {
+    background-color: #ff922a !important;
+}
+
+.btn--info {
+    background-color: #1e9ff2 !important;
+}
+
+.btn--info:hover {
+    background-color: #0d93e9 !important;
+}
+
+.btn--dark {
+    background-color: #10163a !important;
+}
+
+.btn--dark:hover {
+    background-color: #0a0e26 !important;
+}
+
+.btn--primary,
+.btn--secondary,
+.btn--success,
+.btn--danger,
+.btn--warning,
+.btn--info,
+.btn--dark {
+    color: #ffffff;
+}
+
+.btn--primary:hover,
+.btn--secondary:hover,
+.btn--success:hover,
+.btn--danger:hover,
+.btn--warning:hover,
+.btn--info:hover,
+.btn--dark:hover {
+    color: #ffffff;
+}
+
+.btn-outline--primary:hover,
+.btn-outline--secondary:hover,
+.btn-outline--success:hover,
+.btn-outline--danger:hover,
+.btn-outline--warning:hover,
+.btn-outline--info:hover,
+.btn-outline--dark:hover {
+    color: #ffffff;
+}
+
+.btn-outline--primary {
+    color: #4634ff;
+    border-color: #4634ff;
+}
+
+.btn-outline--primary:hover {
+    background-color: #4634ff;
+}
+
+.btn-outline--secondary {
+    color: #868e96;
+    border-color: #868e96;
+}
+
+.btn-outline--secondary:hover {
+    background-color: #868e96;
+}
+
+.btn-outline--success {
+    color: #28c76f;
+    border-color: #28c76f;
+}
+
+.btn-outline--success:hover {
+    background-color: #28c76f;
+}
+
+.btn-outline--danger {
+    color: #ea5455;
+    border-color: #ea5455;
+}
+
+.btn-outline--danger:hover {
+    background-color: #ea5455;
+}
+
+.btn-outline--warning {
+    color: #ff9f43;
+    border-color: #ff9f43;
+}
+
+.btn-outline--warning:hover {
+    background-color: #ff9f43;
+}
+
+.btn-outline--info {
+    color: #1e9ff2;
+    border-color: #1e9ff2;
+}
+
+.btn-outline--info:hover {
+    background-color: #1e9ff2;
+}
+
+.btn-outline--dark {
+    color: #10163a;
+    border-color: #10163a;
+}
+
+.btn-outline--dark:hover {
+    background-color: #10163a;
+}
+
+/* Custom Plugin Css Start */
+.sp-replacer {
+    padding: 0;
+    background-color: none;
+    border: 0;
+    border-radius: 5px 0 0 5px;
+    height: 100%;
+}
+.sp-preview {
+    margin: 0;
+    width: 100px;
+    height: 100%;
+    border: 0;
+}
+.sp-dd {
+    display: none;
+}
+
+/* Custom Plugin Css End*/

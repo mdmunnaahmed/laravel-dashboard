@@ -3,6 +3,8 @@
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,15 +17,6 @@ use App\Http\Controllers\PhotoController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-
 // Admin All Route
 Route::controller(PhotoController::class)->group(function () {
     // Admin Profile Routes
@@ -33,14 +26,23 @@ Route::controller(PhotoController::class)->group(function () {
 
     // Admin Auth Routes
     Route::post('admin/change/password', 'updatePass')->name('admin.change.pass');
-
-    // Admin Generel Settings Routes
-    Route::get('admin/setting/', 'settingIndex')->name('admin.setting');
 });
 
+// Setting
+Route::controller(SettingController::class)->group(function () {
+    Route::get('admin/setting/', 'index')->name('admin.setting');
+    Route::get('admin/setting/store', 'store')->name('admin.setting.store');
+    Route::get('admin/setting/update', 'update')->name('admin.setting.update');
+});
 
-// Route::get('/profile', function () {
-//     return view('admin.profile');
-// })->middleware(['auth'])->name('admin.profile');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+
+
+
+
+
 
 require __DIR__ . '/auth.php';

@@ -135,8 +135,4 @@ class PhotoController extends Controller
         }
     }
 
-    public function settingIndex()
-    {
-        return view('admin.setting.generel_setting');
-    }
 }
