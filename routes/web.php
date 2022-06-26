@@ -31,8 +31,11 @@ Route::controller(PhotoController::class)->group(function () {
 // Setting
 Route::controller(SettingController::class)->group(function () {
     Route::get('admin/setting/', 'index')->name('admin.setting');
-    Route::get('admin/setting/store', 'store')->name('admin.setting.store');
-    Route::get('admin/setting/update', 'update')->name('admin.setting.update');
+    Route::post('admin/setting/store', 'store')->name('admin.setting.store');
+    Route::post('admin/setting/update', 'update')->name('admin.setting.update');
+    // Logo & Favicon
+    Route::get('admin/setting/logo', 'logoIndex')->name('admin.setting.logo');
+    Route::post('admin/setting/logo', 'logoUpload')->name('admin.setting.logo.update');
 });
 
 Route::get('/dashboard', function () {

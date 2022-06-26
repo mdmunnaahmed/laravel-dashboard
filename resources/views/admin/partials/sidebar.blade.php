@@ -5,7 +5,7 @@
                 <span>Main menu</span>
             </li>
             <li class="has-child">
-                <a href="{{ route('dashboard') }}" class="active">
+                <a href="{{ route('dashboard') }}">
                     <span data-feather="home" class="nav-icon"></span>
                     <span class="menu-text">Dashboard</span>
                 </a>
@@ -35,9 +35,15 @@
                 <span>Settings</span>
             </li>
             <li>
-                <a href="{{ route('admin.setting') }}" class="">
+                <a href="{{ route('admin.setting') }}">
                     <span data-feather="settings" class="nav-icon"></span>
                     <span class="menu-text">Generel Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.setting.logo') }}">
+                    <span data-feather="settings" class="nav-icon"></span>
+                    <span class="menu-text">Logo Update</span>
                 </a>
             </li>
             <li class="menu-title m-top-30">

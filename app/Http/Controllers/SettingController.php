@@ -18,6 +18,65 @@ class SettingController extends Controller
         return view('admin.setting.generel_setting', compact('setting'));
     }
 
+    public function logoIndex()
+    {
+        $setting = Setting::get()->first();
+        return view('admin.setting.logo_favicon', compact('setting'));
+    }
+
+    public function logoUpload(Request $request)
+    {
+        $request->validate([
+            'logo' => 'image|mimes:jpg,jpeg,png',
+            'darkLogo' => 'image|mimes:jpg,jpeg,png',
+            'favicon' => 'image|mimes:png',
+        ]);
+        if ($request->file('logo')) {
+            $logo = $request->file('logo');
+            $logoFile = hexdec(uniqid()) . '.' . $logo->getClientOriginalExtension();
+            $logo->move(public_path('admin/img'), $logoFile);
+        }
+        if ($request->file('darkLogo')) {
+            $logoDark = $request->file('darkLogo');
+            $logoDarkFile = hexdec(uniqid()) . '.' . $logoDark->getClientOriginalExtension();
+            $logoDark->move(public_path('admin/img/'), $logoDarkFile);
+        }
+        if ($request->file('favicon')) {
+            $favicon = $request->file('favicon');
+            $faviconFile = hexdec(uniqid()) . '.' . $favicon->getClientOriginalExtension();
+            $favicon->move(public_path('admin/img/'), $faviconFile);
+        }
+
+        if ($request->hasFile('logo')) {
+            Setting::where('id', 1)->update([
+                'logo' => $logoFile,
+            ]);
+            $notification = [
+                'message' => 'Logo Uploaded',
+                'type' => 'success'
+            ];
+        }
+        if ($request->hasFile('darkLogo')) {
+            Setting::where('id', 1)->update([
+                'darkLogo' => $logoDarkFile,
+            ]);
+            $notification = [
+                'message' => 'Logo Dark Uploaded',
+                'type' => 'success'
+            ];
+        }
+        if ($request->hasFile('favicon')) {
+            Setting::where('id', 1)->update([
+                'favicon' => $faviconFile,
+            ]);
+            $notification = [
+                'message' => 'Favicon Uploaded',
+                'type' => 'success'
+            ];
+        }
+        return redirect()->back()->with($notification);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -43,13 +102,46 @@ class SettingController extends Controller
         $base_color = $request->base_color;
         $secondary_color = $request->secondary_color;
 
-        Setting::create([
+        $agree_policy = $request->agree_policy;
+        if ($request->agree_policy == 'on') {
+            $agree_policy = 1;
+        } else {
+            $agree_policy = 0;
+        }
+
+        $user_registration = $request->user_registration;
+        if ($request->user_registration == 'on') {
+            $user_registration = 1;
+        } else {
+            $user_registration = 0;
+        }
+
+        $email_verification = $request->email_verification;
+        if ($request->email_verification == 'on') {
+            $email_verification = 1;
+        } else {
+            $email_verification = 0;
+        }
+
+        $email_notification = $request->email_notification;
+        if ($request->email_notification == 'on') {
+            $email_notification = 1;
+        } else {
+            $email_notification = 0;
+        }
+
+        Setting::create()([
             'site_title' => $site_title,
             'currency' => $currency,
             'currency_symbol' => $currency_symbol,
             'timezone' => $timezone,
             'base_color' => $base_color,
             'secondary_color' => $secondary_color,
+
+            'agree_policy' => $agree_policy,
+            'user_registration' => $user_registration,
+            'email_verification' => $email_verification,
+            'email_notification' => $email_notification,
         ]);
         $notification = [
             'message' => "Setting Updated",
@@ -97,6 +189,34 @@ class SettingController extends Controller
         $base_color = $request->base_color;
         $secondary_color = $request->secondary_color;
 
+        $agree_policy = $request->agree_policy;
+        if ($request->agree_policy == 'on') {
+            $agree_policy = 1;
+        } else {
+            $agree_policy = 0;
+        }
+
+        $user_registration = $request->user_registration;
+        if ($request->user_registration == 'on') {
+            $user_registration = 1;
+        } else {
+            $user_registration = 0;
+        }
+
+        $email_verification = $request->email_verification;
+        if ($request->email_verification == 'on') {
+            $email_verification = 1;
+        } else {
+            $email_verification = 0;
+        }
+
+        $email_notification = $request->email_notification;
+        if ($request->email_notification == 'on') {
+            $email_notification = 1;
+        } else {
+            $email_notification = 0;
+        }
+
         Setting::where('id', 1)->update([
             'site_title' => $site_title,
             'currency' => $currency,
@@ -104,6 +224,11 @@ class SettingController extends Controller
             'timezone' => $timezone,
             'base_color' => $base_color,
             'secondary_color' => $secondary_color,
+
+            'agree_policy' => $agree_policy,
+            'user_registration' => $user_registration,
+            'email_verification' => $email_verification,
+            'email_notification' => $email_notification,
         ]);
         $notification = [
             'message' => "Setting Updated",

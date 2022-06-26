@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->string('site_title')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('darkLogo')->nullable();
+            $table->string('favicon')->nullable();
             $table->string('currency')->nullable();
             $table->string('currency_symbol')->nullable();
             $table->string('timezone')->nullable();
