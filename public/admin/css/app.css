@@ -170,7 +170,7 @@
 }
 
 /* Custom Plugin Css End*/
-button{
+button {
     outline: none !important;
     border: none !important;
 }
@@ -237,4 +237,8 @@ button{
 
 .image-upload .thumb .profilePicPreview.has-image .remove-image {
     display: block;
+}
+
+.custom-title span {
+    color: #0d93e9;
 }

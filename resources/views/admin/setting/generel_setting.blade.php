@@ -5,6 +5,7 @@
     @csrf
 
     <div class="card card-Vertical card-default card-md mb-4">
+        <h4 class="custom-title p-4">@php echo $site_title; @endphp</h4>
         <div class="card-header">
             <h6>Generel Setting </h6>
         </div>
@@ -14,7 +15,7 @@
                 <div class="row">
                     <div class="col-sm-6 col-lg-4 mb-25">
                         <label class="color-dark fs-14 fw-500 align-center">Site Title</label>
-                        <input name="site_title" type="text" class="form-control ih-medium ip-gray radius-xs b-light px-15" value="{{ $setting->site_title }}  ">
+                        <input name="site_title" type="text" class="form-control ih-medium ip-gray radius-xs b-light px-15" value="{{ $title }}">
                     </div>
 
                     <div class="col-sm-6 col-lg-4 mb-25">

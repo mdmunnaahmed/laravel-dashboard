@@ -15,7 +15,13 @@ class SettingController extends Controller
     public function index()
     {
         $setting = Setting::get()->first();
-        return view('admin.setting.generel_setting', compact('setting'));
+
+        $title = $setting->site_title;
+        $array = explode("#", $title);
+        $inject = '<span>' . $array[1] . '</span>';
+        $site_title = $setting->site_title = $array[0] . $inject . $array[2];
+
+        return view('admin.setting.generel_setting', compact('setting', 'site_title', 'title'));
     }
 
     public function logoIndex()
