@@ -19,6 +19,8 @@ class SettingController extends Controller
         $title = $setting->site_title;
         $array = explode("#", $title);
         // dd($array);
+        $array[0] = $array[0] ?? '';
+        $array[1] = $array[1] ?? '';
         $array[2] = $array[2] ?? '';
         if ($array[0] || $array[1] || $array[2]) {
             $inject = '<span>' . $array[1] . '</span>';
