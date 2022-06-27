@@ -18,9 +18,12 @@ class SettingController extends Controller
 
         $title = $setting->site_title;
         $array = explode("#", $title);
-        $inject = '<span>' . $array[1] . '</span>';
-        $site_title = $setting->site_title = $array[0] . $inject . $array[2];
-
+        // dd($array);
+        $array[2] = $array[2] ?? '';
+        if ($array[0] || $array[1] || $array[2]) {
+            $inject = '<span>' . $array[1] . '</span>';
+            $site_title = $setting->site_title = $array[0] . $inject . $array[2];
+        }
         return view('admin.setting.generel_setting', compact('setting', 'site_title', 'title'));
     }
 

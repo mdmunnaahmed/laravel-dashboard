@@ -22,6 +22,13 @@ class PhotoController extends Controller
         return view('admin.profile', compact('admin_data'));
     }
 
+    public function dashboardIndex()
+    {
+        $id = Auth::user()->id;
+        $admin_data = User::find($id);
+        return view('admin.dashboard', compact('admin_data'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -134,5 +141,4 @@ class PhotoController extends Controller
             return redirect()->back();
         }
     }
-
 }

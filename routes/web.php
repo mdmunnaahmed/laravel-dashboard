@@ -19,6 +19,9 @@ use App\Http\Controllers\SettingController;
 
 // Admin All Route
 Route::controller(PhotoController::class)->group(function () {
+    // Admin Dashboard Routes
+    Route::get('admin/dashboard/', 'dashboardIndex')->name('admin.dashboard');
+
     // Admin Profile Routes
     Route::get('admin/profile/', 'index')->name('admin.profile')->middleware(['auth']);
     Route::get('admin/profile/edit/', 'edit')->name('admin.profile.edit');

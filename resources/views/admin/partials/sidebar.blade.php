@@ -5,7 +5,7 @@
                 <span>Main menu</span>
             </li>
             <li class="has-child">
-                <a href="{{ route('dashboard') }}">
+                <a href="{{ route('admin.dashboard') }}">
                     <span data-feather="home" class="nav-icon"></span>
                     <span class="menu-text">Dashboard</span>
                 </a>
